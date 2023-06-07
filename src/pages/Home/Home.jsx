@@ -1,9 +1,12 @@
+import TopSlides from "./TopSlides";
+
 
 
 const Home = () => {
     return (
         <div>
-            <h2>This Home Page</h2>
+            <TopSlides/>
+            <h2>Home page</h2>
         </div>
     );
 };
