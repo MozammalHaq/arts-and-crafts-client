@@ -1,10 +1,13 @@
 import React from 'react';
 import Container from '../../components/Shared/Container';
+import SectionTitle from '../../components/Shared/SectionTitle';
 
 const PopularClass = () => {
     return (
         <Container>
-            <h2 className='text-2xl'>Popular Class</h2>
+            <SectionTitle
+                title="Popular Classes"
+            ></SectionTitle>
         </Container>
     );
 };
