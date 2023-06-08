@@ -14,11 +14,7 @@ const ErrorPage = () => {
                 <p className="text-red-500">
                     <i>{error.statusText || error.message}</i>
                 </p>
-                <SectionTitle
-                    title="Arts & Crafts School"
-                ></SectionTitle>
-                <p> <button className="btn">Contact: 0088012345679</button> OR <Link className="btn" to='/'>Go Home</Link></p>
-                <p className="mt-6 text-blue-700"><small>&copy; {new Date().getFullYear()} - All right reserved by ARTS & CRAFT School</small></p>
+                <Link className="btn" to='/'>Go Home</Link>
             </div>
         </div>
     );

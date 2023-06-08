@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom"
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
+
     const navItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor">Instructor</Link></li>
         <li><Link to="/classes">Classes</Link></li>
-        <li><Link to="/dashboard">Dashboard</Link></li>
+        {user && <li><Link to="/dashboard">Dashboard</Link></li>}
     </>
-    
+
     return (
         // <div className="navbar bg-gradient-to-r from-purple-600 font-semibold to-pink-800 text-white">
         <div className="navbar bg-gradient-to-r from-[#1D1E23] font-semibold to-pink-800 text-white">
@@ -29,7 +38,16 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                {
+                    !user
+                        ?
+                        <Link to="/login">Login</Link>
+                        :
+                        <>
+                            <img title={user?.displayName} className='w-10 rounded-full' src={user?.photoURL} alt="" />
+                            <button onClick={handleLogOut} className="btn btn-ghost">log Out</button>
+                        </>
+                }
             </div>
         </div>
     );

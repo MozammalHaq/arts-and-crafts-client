@@ -12,6 +12,8 @@ import ManageClass from '../pages/Admin/ManageClass'
 import ManageUsers from '../pages/Admin/ManageUsers'
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import Dashboard from '../Dashboard/Dashboard'
+import SignUp from '../pages/SignUp/SignUp'
+import Login from '../pages/Login/Login'
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ export const router = createBrowserRouter([
       {
         path: '/classes',
         element: <Classes />
+      },
+      {
+        path: '/signup',
+        element: <SignUp />
+      },
+      {
+        path: '/login',
+        element: <Login />
       },
       {
         path: '/dashboard',
