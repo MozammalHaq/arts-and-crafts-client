@@ -6,15 +6,12 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor">Instructor</Link></li>
         <li><Link to="/classes">Classes</Link></li>
-        <li><Link to="/selectedClass">My Selected Class</Link></li>
-        <li><Link to="/enrolledClass">My Enrolled Class</Link></li>
-        <li><Link to="/addClass">Add a Class</Link></li>
-        <li><Link to="/myClass">My Classes</Link></li>
-        <li><Link to="/manageClass">Manage Classes</Link></li>
-        <li><Link to="/manageUsers">Manage Users</Link></li>
+        <li><Link to="/dashboard">Dashboard</Link></li>
     </>
+    
     return (
-        <div className="navbar bg-gradient-to-r from-purple-600 font-semibold to-pink-800 text-white">
+        // <div className="navbar bg-gradient-to-r from-purple-600 font-semibold to-pink-800 text-white">
+        <div className="navbar bg-gradient-to-r from-[#1D1E23] font-semibold to-pink-800 text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -24,7 +21,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="btn btn-ghost normal-case text-2xl font-bold">Arts&Crafts School</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

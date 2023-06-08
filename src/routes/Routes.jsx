@@ -11,6 +11,7 @@ import MyClasses from '../pages/Instructor/MyClasses'
 import ManageClass from '../pages/Admin/ManageClass'
 import ManageUsers from '../pages/Admin/ManageUsers'
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
+import Dashboard from '../Dashboard/Dashboard'
 
 export const router = createBrowserRouter([
   {
@@ -27,36 +28,42 @@ export const router = createBrowserRouter([
         element: <Instructor />
       },
       {
-        path: '/addClass',
-        element: <AddClass />
-      },
-      {
-        path: '/myClass',
-        element: <MyClasses />
-      },
-      {
         path: '/classes',
         element: <Classes />
       },
       {
-        path: '/selectedClass',
-        element: <SelectedClass />
-      },
-      {
-        path: '/enrolledClass',
-        element: <EnrolledClass />
-      },
-      {
-        path: '/payment',
-        element: <Payment />
-      },
-      {
-        path: '/manageClass',
-        element: <ManageClass />
-      },
-      {
-        path: '/manageUsers',
-        element: <ManageUsers />
+        path: '/dashboard',
+        element: <Dashboard />,
+        children: [
+          {
+            path: 'selectedClass',
+            element: <SelectedClass />
+          },
+          {
+            path: 'enrolledClass',
+            element: <EnrolledClass />
+          },
+          {
+            path: 'payment',
+            element: <Payment />
+          },
+          {
+            path: 'addClass',
+            element: <AddClass />
+          },
+          {
+            path: 'myClass',
+            element: <MyClasses />
+          },
+          {
+            path: 'manageClass',
+            element: <ManageClass />
+          },
+          {
+            path: 'manageUsers',
+            element: <ManageUsers />
+          }
+        ]
       }
     ]
   },

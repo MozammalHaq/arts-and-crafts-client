@@ -3,7 +3,7 @@ import Navbar from "../components/Shared/Navbar";
 
 const Main = () => {
   return (
-    <div>
+    <div className="bg-[#1D1E23] text-yellow-600">
       <Navbar />
       <Outlet />
     </div>
