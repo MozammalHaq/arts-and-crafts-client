@@ -15,14 +15,14 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor">Instructor</Link></li>
         <li><Link to="/classes">Classes</Link></li>
-        {user && <li><Link to="/dashboard">Dashboard</Link></li>}
+        {user && <li className='uppercase text-yellow-600 bg-yellow-50 rounded-full'><Link to="/dashboard">Dashboard</Link></li>}
     </>
 
     return (
         // <div className="navbar bg-gradient-to-r from-purple-600 font-semibold to-pink-800 text-white">
         <div className="navbar bg-gradient-to-r from-[#1D1E23] font-semibold to-pink-800 text-white">
             <div className="navbar-start">
-                <div className="dropdown">
+                <div className="dropdown text-yellow-600">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>

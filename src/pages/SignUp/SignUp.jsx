@@ -15,7 +15,7 @@ const SignUp = () => {
     const onSubmit = data => {
 
         if (data.password !== data.confirmPassword) {
-            return alert("Password not match")
+            return Swal.fire('Confirmation password not match')
         }
 
         createUser(data.email, data.password)
@@ -73,29 +73,42 @@ const SignUp = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Photo URL</span>
-                                </label>
-                                <input {...register("url", { required: true })} type="url" name="url" placeholder="url" className="input input-bordered" />
-                                {errors.url && <span>This field is required</span>}
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input {...register("email")} type="email" name="email" placeholder="email" className="input input-bordered" />
+                                <input {...register("email", { required: true })} type="email" name="email" placeholder="email" className="input input-bordered" />
                                 {errors.email && <span>This field is required</span>}
                             </div>
-                            <div className="form-control">
+                            {/* <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input {...register("password")} type="password" name="password" placeholder="password" className="input input-bordered" />
+                            </div> */}
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input type="password"  {...register("password", {
+                                    required: true,
+                                    minLength: 6,
+                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/
+                                })} placeholder="password" className="input input-bordered" />
+                                {errors.password?.type === 'required' && <p>Password is required</p>}
+                                {errors.password?.type === 'minLength' && <p>Password is less than 6 characters</p>}
+                                {errors.password?.type === 'pattern' && <p>Password don't have a capital letter or special character or both</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
-                                <input {...register("confirmPassword")} type="password" name="confirmPassword" placeholder="confirm password" className="input input-bordered" />
+                                <input {...register("confirmPassword")} type="password" name="confirmPassword" placeholder="Confirm Password" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input {...register("url", { required: true })} type="url" name="url" placeholder="url" className="input input-bordered" />
+                                {errors.url && <span>This field is required</span>}
                             </div>
                             <label className="label">
                                 <Link to='/login' className="label-text-alt link link-hover">Login</Link>
