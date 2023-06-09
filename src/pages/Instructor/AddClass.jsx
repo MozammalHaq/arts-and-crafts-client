@@ -122,7 +122,7 @@ const AddClass = () => {
                     />
                     {errors.price && <span className="text-red-500">Price is required</span>}
                 </div>
-                <div className="mb-6">
+                {/* <div className="mb-6">
                     <label htmlFor="status" className="block text-sm font-bold mb-2">
                         Status
                     </label>
@@ -133,6 +133,20 @@ const AddClass = () => {
                         className="w-full px-4 py-2 rounded-md border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         {...register('status')} // Register the status field with React Hook Form
                         value="pending"
+                        readOnly
+                    />
+                </div> */}
+                <div className="mb-6">
+                    <label htmlFor="enroll" className="block text-sm font-bold mb-2">
+                        Enroll
+                    </label>
+                    <input
+                        type="text"
+                        id="enroll"
+                        placeholder='Enroll'
+                        className="w-full px-4 py-2 rounded-md border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        {...register('enroll')} // Register the status field with React Hook Form
+                        value= "0"
                         readOnly
                     />
                 </div>

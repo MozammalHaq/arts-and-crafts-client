@@ -15,6 +15,7 @@ import SignUp from '../pages/SignUp/SignUp'
 import Login from '../pages/Login/Login'
 import Instructors from '../pages/Instructor/Instructors'
 import ClassDetails from '../components/ClassDetails'
+import PrivateRoute from './PrivateRoute'
 
 export const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/classDetails/:id',
-        element: <ClassDetails/>,
+        element: <PrivateRoute><ClassDetails/></PrivateRoute>,
         loader: ({params})=> fetch(`http://localhost:5000/classes/${params.id}`)
       },
       {

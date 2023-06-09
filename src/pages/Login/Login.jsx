@@ -1,9 +1,11 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-// import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import SocialLogin from '../../components/Shared/SocialLogin';
+import Container from '../../components/Shared/Container';
+import SectionTitle from '../../components/Shared/SectionTitle';
 
 
 const Login = () => {
@@ -45,16 +47,13 @@ const Login = () => {
     }
 
     return (
-        <>
-            {/* <Helmet>
-                <title>Bistro Boss - Login</title>
-            </Helmet> */}
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    </div>
+        <Container>
+            <Helmet>
+                <title>Arts & Crafts School - Login</title>
+            </Helmet>
+            <SectionTitle title="Login Page">Login Now</SectionTitle>
+            <div className="hero bg-opacity-0  mb-6 bg-base-200">
+                <div className="hero-content w-1/2">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
@@ -93,7 +92,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </Container>
     );
 };
 

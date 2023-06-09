@@ -1,10 +1,11 @@
 import { useContext } from "react";
-// import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../../components/Shared/SocialLogin";
+import SectionTitle from "../../components/Shared/SectionTitle";
 
 
 const SignUp = () => {
@@ -53,15 +54,12 @@ const SignUp = () => {
 
     return (
         <>
-            {/* <Helmet>
-                <title>Bistro Boss - Sign Up</title>
-            </Helmet> */}
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Sign Up Now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    </div>
+            <Helmet>
+                <title>Arts & Cultural - Sign Up</title>
+            </Helmet>
+            <SectionTitle title="SignUp Page">SignUp Now</SectionTitle>
+            <div className="hero bg-opacity-0  mb-6 bg-base-200">
+                <div className="hero-content w-1/2">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
