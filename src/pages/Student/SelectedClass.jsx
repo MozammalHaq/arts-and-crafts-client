@@ -8,7 +8,7 @@ const SelectedClass = () => {
     const [classes, setClasses] = useState([]);
     console.log(classes)
     const { user } = useContext(AuthContext);
-    
+
 
     useEffect(() => {
         fetch('http://localhost:5000/enrolled')
@@ -19,6 +19,7 @@ const SelectedClass = () => {
                 setClasses(myAllClass)
             })
     }, [])
+
 
     const handleDelete = id => {
         Swal.fire({
@@ -44,8 +45,8 @@ const SelectedClass = () => {
                                 'Your toy has been deleted.',
                                 'success'
                             )
-                            const remaining = toys.filter(booking => booking._id !== id);
-                            setToys(remaining)
+                            const remaining = classes.filter(aClass => aClass._id !== id);
+                            setClasses(remaining)
                         }
                     })
             }
@@ -88,7 +89,7 @@ const SelectedClass = () => {
                                     <button className='btn bg-lime-600 border-0 text-white '>Pay</button>
                                 </td>
                                 <td>
-                                    <button onClick={()=> handleDelete(item._id)} className='btn bg-red-600 border-0 text-white '><FaTrashAlt /></button>
+                                    <button onClick={() => handleDelete(item._id)} className='btn bg-red-600 border-0 text-white '><FaTrashAlt /></button>
                                 </td>
                             </tr>)
                         }
