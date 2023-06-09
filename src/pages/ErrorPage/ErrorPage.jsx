@@ -1,6 +1,5 @@
 import { Link, useRouteError } from "react-router-dom";
 import fof from '../../../src/assets/nf404.gif'
-import SectionTitle from "../../components/Shared/SectionTitle";
 
 
 const ErrorPage = () => {

@@ -64,6 +64,7 @@ export const router = createBrowserRouter([
           {
             path: 'myClass',
             element: <MyClasses />
+            // loader: () => fetch('http://localhost:5000/classes')
           },
           {
             path: 'manageClass',

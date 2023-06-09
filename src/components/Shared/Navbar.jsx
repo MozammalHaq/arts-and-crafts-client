@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom"
 import { AuthContext } from '../../providers/AuthProvider';
+import phImg from '../../assets/images/banner/placeholder.jpg'
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -41,11 +42,14 @@ const Navbar = () => {
                 {
                     !user
                         ?
-                        <Link to="/login">Login</Link>
+                        <>
+                            <img src={phImg} className='w-11 h-11 rounded-full' alt="" srcset="" />
+                            <Link className="rounded-full ml-2 btn btn-ghost" to="/login">Login</Link>
+                        </>
                         :
                         <>
-                            <img title={user?.displayName} className='w-10 rounded-full' src={user?.photoURL} alt="" />
-                            <button onClick={handleLogOut} className="btn btn-ghost">log Out</button>
+                            <img title={user?.displayName} className='w-11 h-11 rounded-full' src={user?.photoURL} alt="" />
+                            <button onClick={handleLogOut} className="rounded-full ml-2 btn btn-ghost">log Out</button>
                         </>
                 }
             </div>
