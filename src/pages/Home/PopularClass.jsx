@@ -7,9 +7,9 @@ const PopularClass = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        fetch('classes.json')
+        fetch('http://localhost:5000/classes')
             .then(res => res.json())
-            .then(data => setClasses(data))
+            .then(data => setClasses(data.slice(0,6)))
     }, [])
 
     return (
@@ -20,7 +20,7 @@ const PopularClass = () => {
             <div className='grid md:grid-cols-3 gap-7'>
                 {
                     classes?.map(item => <ClassCard
-                        key={item.id}
+                        key={item._id}
                         item={item}
                     ></ClassCard>)
                 }

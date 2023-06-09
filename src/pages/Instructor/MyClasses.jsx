@@ -11,7 +11,7 @@ const MyClasses = () => {
             .then(res => res.json())
             .then(data => {
                 // const uEmail = user?.email;
-                // console.log(data, user?.email)
+                console.log(data)
                 const myAllClass = data.filter(myClass => myClass?.instructorEmail === user?.email);
                 setClasses(myAllClass)
             })

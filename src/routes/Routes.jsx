@@ -14,6 +14,7 @@ import Dashboard from '../Dashboard/Dashboard'
 import SignUp from '../pages/SignUp/SignUp'
 import Login from '../pages/Login/Login'
 import Instructors from '../pages/Instructor/Instructors'
+import ClassDetails from '../components/ClassDetails'
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ export const router = createBrowserRouter([
       {
         path: '/classes',
         element: <Classes />
+      },
+      {
+        path: '/classDetails/:id',
+        element: <ClassDetails/>,
+        loader: ({params})=> fetch(`http://localhost:5000/classes/${params.id}`)
       },
       {
         path: '/signup',

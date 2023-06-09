@@ -43,7 +43,7 @@ const Navbar = () => {
                     !user
                         ?
                         <>
-                            <img src={phImg} className='w-11 h-11 rounded-full' alt="" srcset="" />
+                            <img src={phImg} className='w-11 h-11 rounded-full' alt="" srcSet="" />
                             <Link className="rounded-full ml-2 btn btn-ghost" to="/login">Login</Link>
                         </>
                         :
