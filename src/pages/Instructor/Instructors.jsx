@@ -17,7 +17,8 @@ const Instructors = () => {
                 <SectionTitle
                     title="All Instructors"
                 >
-                    Total: {instructors.length}
+                    Total Instructor: {instructors.length
+                    }
                 </SectionTitle>
 
                 <div className="overflow-x-auto">
@@ -48,7 +49,11 @@ const Instructors = () => {
                                     <td>
                                         <div className="font-bold">{instructor.name}</div>
                                     </td>
-                                    <td>{instructor.email}</td>
+                                    <td>
+                                        <a href={`mailto:${instructor.email}`} className="text-blue-500 hover:underline">
+                                            {instructor.email}
+                                        </a>
+                                    </td>
                                 </tr>)
                             }
                         </tbody>
