@@ -12,7 +12,7 @@ const Instructors = () => {
     }, [])
 
     return (
-        <div className='h-screen my-20'>
+        <div className='my-20'>
             <Container>
                 <SectionTitle
                     title="All Instructors"

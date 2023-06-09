@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import SectionTitle from '../../components/Shared/SectionTitle';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddClass = () => {
     const { user } = useContext(AuthContext)
@@ -9,6 +10,26 @@ const AddClass = () => {
 
     const onSubmit = (data) => {
         console.log(data);
+        fetch('http://localhost:5000/classes', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId || !data.insertedId) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Data Added Successfully.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     };
     return (
 
@@ -32,7 +53,7 @@ const AddClass = () => {
                 </div>
                 <div className="mb-6">
                     <label htmlFor="classImage" className="block text-gray-700 text-sm font-bold mb-2">
-                        Class Image
+                        Class Image url
                     </label>
                     <input
                         type="text"
@@ -40,7 +61,7 @@ const AddClass = () => {
                         className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         {...register('classImage', { required: true })}
                     />
-                    {errors.classImage && <span className="text-red-500">Class Image is required</span>}
+                    {errors.classImage && <span className="text-red-500">Class Image url is required</span>}
                 </div>
                 <div className="mb-6">
                     <label htmlFor="instructorName" className="block text-gray-700 text-sm font-bold mb-2">

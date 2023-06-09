@@ -71,7 +71,8 @@ export const router = createBrowserRouter([
           },
           {
             path: 'manageUsers',
-            element: <ManageUsers />
+            element: <ManageUsers />,
+            loader: () => fetch('http://localhost:5000/users')
           }
         ]
       }
