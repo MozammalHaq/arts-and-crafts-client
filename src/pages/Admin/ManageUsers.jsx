@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from '../../components/Shared/Container';
 import { useLoaderData } from 'react-router-dom';
 import SectionTitle from '../../components/Shared/SectionTitle';
 import { FaUserAlt } from 'react-icons/fa';
@@ -8,11 +7,11 @@ const ManageUsers = () => {
     const users = useLoaderData();
     console.log(users)
     return (
-        <Container>
+        <div className='px-5'>
             <SectionTitle
                 title="Manage Users"
             >
-                Total User: {users.length}
+                Total Users: {users.length}
             </SectionTitle>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
@@ -33,14 +32,14 @@ const ManageUsers = () => {
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td><FaUserAlt /></td>
-                                <td><FaUserAlt /></td>
+                                <td className='text-center'><button><FaUserAlt /></button></td>
+                                <td className='text-center'><button><FaUserAlt /></button></td>
                             </tr>)
                         }
                     </tbody>
                 </table>
             </div>
-        </Container>
+        </div>
     );
 };
 
