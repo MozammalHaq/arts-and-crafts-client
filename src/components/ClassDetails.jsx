@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Container from "./Shared/Container";
 import SectionTitle from "./Shared/SectionTitle";
 import Swal from "sweetalert2";
@@ -81,7 +81,7 @@ const ClassDetails = () => {
                         Contact Instructor
                     </a>
                 </div>
-                {availableSeats !== 0 && <form>
+                {availableSeats !== 0 ? <form>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text text-yellow-500">Get a seat</span>
@@ -89,7 +89,9 @@ const ClassDetails = () => {
                         <input type="text" readOnly name="aSeat" value="1" placeholder="Type here" className="input input-bordered bg-opacity-0 input-primary w-full max-w-xs" />
                     </div>
                     <button onClick={handleSubmit} className="btn mt-5">Enroll</button>
-                </form>}
+                </form> :
+                    <Link className='bg-gradient-to-r from-blue-500 to-purple-500 hover:from-pink-500 hover:to-red-500 text-white font-semibold py-2 px-4 rounded-md' to="/classes">Previous</Link>
+                }
             </div>
         </Container>
     );

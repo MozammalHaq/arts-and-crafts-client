@@ -33,12 +33,13 @@ export const router = createBrowserRouter([
       },
       {
         path: '/classes',
-        element: <Classes />
+        element: <Classes />,
+        loader: () => fetch('http://localhost:5000/classes')
       },
       {
         path: '/classDetails/:id',
-        element: <PrivateRoute><ClassDetails/></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/classes/${params.id}`)
+        element: <PrivateRoute><ClassDetails /></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
       },
       {
         path: '/signup',
