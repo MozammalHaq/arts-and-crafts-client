@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Container from '../../components/Shared/Container';
 import SectionTitle from '../../components/Shared/SectionTitle';
 import ClassCard from '../../components/ClassCard';
+import { Link } from 'react-router-dom';
 
 const PopularClass = () => {
     const [classes, setClasses] = useState([]);
@@ -9,7 +10,10 @@ const PopularClass = () => {
     useEffect(() => {
         fetch('http://localhost:5000/classes')
             .then(res => res.json())
-            .then(data => setClasses(data.slice(0,6)))
+            .then(data => {
+                const sorted = data.sort((b, a) => parseFloat(a?.enroll) - parseFloat(b?.enroll))
+                setClasses(sorted.slice(0, 6))
+            })
     }, [])
 
     return (
@@ -24,6 +28,9 @@ const PopularClass = () => {
                         item={item}
                     ></ClassCard>)
                 }
+            </div>
+            <div className='flex justify-center mt-12'>
+                <Link to='/classes' className='bg-gradient-to-r from-blue-500 to-purple-500 hover:from-pink-500 hover:to-red-500 text-white font-semibold py-2 px-4 rounded-md'>All Classes</Link>
             </div>
         </Container>
     );
