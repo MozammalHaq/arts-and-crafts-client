@@ -3,37 +3,26 @@ import SectionTitle from '../../components/Shared/SectionTitle';
 import { AuthContext } from '../../providers/AuthProvider';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const SelectedClass = () => {
     const [classes, setClasses] = useState([]);
     const { user } = useContext(AuthContext);
-    const [axiosSecure] = useAxiosSecure();
+    const token = localStorage.getItem('access-token');
 
-    const getData = async () => {
-        const { data } = await axiosSecure.get('/enrolled');
-        const myAllClass = data.filter(myClass => myClass?.email === user?.email);
-        setClasses(myAllClass)
-    }
 
     useEffect(() => {
-        getData()
+        fetch('http://localhost:5000/enrolled', {
+            headers: {
+                authorization: `bearer ${token}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                const myAllClass = data.filter(myClass => myClass?.email === user?.email);
+                setClasses(myAllClass)
+            })
     }, [])
-
-
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/enrolled', {
-    //         headers: {
-    //             authorization: `bearer ${token}`
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             const myAllClass = data.filter(myClass => myClass?.email === user?.email);
-    //             setClasses(myAllClass)
-    //         })
-    // }, [])
 
 
     const handleDelete = id => {
@@ -72,9 +61,9 @@ const SelectedClass = () => {
         <div className='mx-5'>
             <SectionTitle title="My Selected Classes">Total Class: {classes.length}</SectionTitle>
             <div className="overflow-x-auto">
-                <table className="table border">
+                <table className="table">
                     {/* head */}
-                    <thead className='text-white uppercase bg-pink-800'>
+                    <thead className='text-white uppercase'>
                         <tr>
                             <th>#</th>
                             <th>Image</th>
