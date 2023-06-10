@@ -2,17 +2,65 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SectionTitle from '../../components/Shared/SectionTitle';
 import { FaUserAlt } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2';
+
+
+
+
 
 const ManageUsers = () => {
     const users = useLoaderData();
-    console.log(users)
+
+    const handleMakeInstructor = user => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    // refetch()
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: `${user.name} is as Instructor now.`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
+    const handleMakeAdmin = user => {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    // refetch()
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: `${user.name} is as Admin now.`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
     return (
         <div className='px-5'>
-            <SectionTitle
-                title="Manage Users"
-            >
-                Total Users: {users.length}
-            </SectionTitle>
+            {/* Site Title  */}
+            <Helmet>
+                <title>Arts & Crafts School - Manage Users</title>
+            </Helmet>
+
+            {/* Section Title */}
+            <SectionTitle title="Manage Users">Total Users: {users.length}</SectionTitle>
+
+            {/* Manage User Body */}
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}
@@ -32,8 +80,12 @@ const ManageUsers = () => {
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td className='text-center'><button><FaUserAlt /></button></td>
-                                <td className='text-center'><button><FaUserAlt /></button></td>
+                                <td className='text-center'><button
+                                    onClick={() => handleMakeInstructor(user)}
+                                >{user?.role === 'instructor' ? "Instructor" : <FaUserAlt />}</button></td>
+                                <td className='text-center'><button
+                                    onClick={() => handleMakeAdmin(user)}
+                                >{user?.role === 'admin' ? 'Admin' : <FaUserAlt />}</button></td>
                             </tr>)
                         }
                     </tbody>

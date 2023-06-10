@@ -6,7 +6,7 @@ import { HiClipboardList, HiOutlineAdjustments } from "react-icons/hi";
 const Dashboard = () => {
     return (
         <div className="drawer lg:drawer-open">
-            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />login
             <div className="drawer-content flex flex-col justify-start">
                 {/* Page content here */}
                 <Outlet/>
