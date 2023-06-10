@@ -6,9 +6,6 @@ import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 
 
-
-
-
 const ManageUsers = () => {
     const users = useLoaderData();
 

@@ -6,12 +6,16 @@ import Swal from 'sweetalert2';
 
 const SelectedClass = () => {
     const [classes, setClasses] = useState([]);
-    console.log(classes)
     const { user } = useContext(AuthContext);
+    const token = localStorage.getItem('access-token');
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/enrolled')
+        fetch('http://localhost:5000/enrolled', {
+            headers: {
+                authorization: `bearer ${token}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
