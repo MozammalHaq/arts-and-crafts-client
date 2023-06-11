@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Container from '../../components/Shared/Container';
 import SectionTitle from '../../components/Shared/SectionTitle';
+import InsRow from './InsRow';
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState([]);
+    // console.log(instructors);
 
     useEffect(() => {
-        fetch('instructors.json')
+        fetch('http://localhost:5000/users')
             .then(res => res.json())
-            .then(data => setInstructors(data))
+            .then(data => {
+                const inss = data.filter(ins => ins?.rol === 'instructor')
+                setInstructors(inss);
+            })
     }, [])
 
     return (
@@ -17,8 +22,7 @@ const Instructors = () => {
                 <SectionTitle
                     title="All Instructors"
                 >
-                    Total Instructor: {instructors.length
-                    }
+                    Total Instructor: {instructors.length}
                 </SectionTitle>
 
                 <div className="overflow-x-auto">
@@ -34,27 +38,26 @@ const Instructors = () => {
                         </thead>
                         <tbody>
                             {/* row 1 */}
-                            {
-                                instructors?.map((instructor, i) => <tr key={instructor.id}>
-                                    <th>{i + 1}</th>
-                                    <td>
-                                        <div className="flex items-center space-x-3">
-                                            <div className="avatar">
-                                                <div className="mask rounded-full w-12 h-12">
-                                                    <img src={instructor.image} alt="Instructor" />
-                                                </div>
+                            {instructors.map((instructor, i) => <tr key={instructor._id}>
+                                <th>{i + i}</th>
+                                <td>
+                                    <div className="flex items-center space-x-3">
+                                        <div className="avatar">
+                                            <div className="mask rounded-full w-12 h-12">
+                                                <img src={instructor.image} alt="Instructor" />
                                             </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        <div className="font-bold">{instructor.name}</div>
-                                    </td>
-                                    <td>
-                                        <a href={`mailto:${instructor.email}`} className="text-blue-500 hover:underline">
-                                            {instructor.email}
-                                        </a>
-                                    </td>
-                                </tr>)
+                                    </div>
+                                </td>
+                                <td>
+                                    <div className="font-bold">{instructor.name}</div>
+                                </td>
+                                <td>
+                                    <a href={`mailto:${instructor.email}`} className="text-blue-500 hover:underline">
+                                        {instructor.email}
+                                    </a>
+                                </td>
+                            </tr>)
                             }
                         </tbody>
                     </table>

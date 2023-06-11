@@ -7,7 +7,7 @@ import Button from '../../components/Shared/Button';
 
 const AddClass = () => {
     const { user } = useContext(AuthContext)
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
@@ -29,6 +29,7 @@ const AddClass = () => {
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    reset()
                 }
             })
     };

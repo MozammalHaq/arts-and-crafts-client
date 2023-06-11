@@ -5,11 +5,14 @@ import Instructor from '../../components/Instructor';
 
 const PopularInstructor = () => {
     const [instructors, setInstructors] = useState([]);
+    
 
     useEffect(() => {
-        fetch('instructors.json')
+        fetch('http://localhost:5000/classes')
             .then(res => res.json())
-            .then(data => setInstructors(data))
+            .then(data => {
+                setInstructors(data)
+            })
     }, [])
 
     return (
@@ -21,7 +24,7 @@ const PopularInstructor = () => {
                 <div className='grid md:grid-cols-2 gap-5'>
                     {
                         instructors.map(instructor => <Instructor
-                            key={instructor.id}
+                            key={instructor._id}
                             instructor={instructor}
                         ></Instructor>)
                     }
