@@ -12,7 +12,7 @@ const ClassDetails = () => {
     const data = useLoaderData();
     
     const { _id, instructorName, className, classImage, availableSeats, instructorEmail, price, enroll } = data;
-    const enrolledData = { id: _id, instructorName, className, classImage, email };
+    const enrolledData = { id: _id, instructorName, className, classImage, email, price };
     const handleSubmit = (e) => {
         e.preventDefault();
 

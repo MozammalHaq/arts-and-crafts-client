@@ -11,6 +11,8 @@ const Dashboard = () => {
     const [instructors, setInstructors] = useState([]);
     const { user } = useAuth();
 
+    const dashboard = window.location.href === 'http://127.0.0.1:5173/dashboard';
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/users')
@@ -36,16 +38,17 @@ const Dashboard = () => {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />login
             <div className="drawer-content flex flex-col justify-start">
                 {/* Page content here */}
+
                 <Fade>
                     <Outlet />
                 </Fade>
-                <Rotate duration={2000}>
+                {!dashboard && <Rotate duration={2000}>
                     <div className='flex flex-col justify-center items-center h-screen'>
                         <h3 className='text-3xl'>Assalamu Alaikum, Warahmatulaah</h3>
                         <h2 className='text-6xl py-10 text-info'>{(admin.length > 0 && instructors.length) > 0 ? user?.displayName : instructors.length > 0 ? user?.displayName : user?.displayName}</h2>
                         <h3 className='text-3xl'>Your are <span className='text-primary'>{admin.length > 0 && instructors.length > 0 ? "Admin" : instructors.length > 0 ? "Instructor" : "User"}</span> of the Site</h3>
                     </div>
-                </Rotate>
+                </Rotate>}
 
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 

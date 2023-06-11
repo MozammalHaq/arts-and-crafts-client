@@ -4,6 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { Link } from 'react-router-dom';
 
 const SelectedClass = () => {
     const [classes, setClasses] = useState([]);
@@ -79,6 +80,7 @@ const SelectedClass = () => {
                             <th>#</th>
                             <th>Image</th>
                             <th>Class</th>
+                            <th>Price</th>
                             <th>Payment</th>
                             <th>Delete</th>
                         </tr>
@@ -100,8 +102,9 @@ const SelectedClass = () => {
                                 <td>
                                     <div className="font-bold">{item.className}</div>
                                 </td>
+                                <td>{item?.price}</td>
                                 <td>
-                                    <button className='btn bg-lime-600 border-0 text-white '>Pay</button>
+                                    <Link to="/dashboard/payment"><button className='btn bg-lime-600 border-0 text-white '>Pay</button></Link>
                                 </td>
                                 <td>
                                     <button onClick={() => handleDelete(item._id)} className='btn bg-red-600 border-0 text-white '><FaTrashAlt /></button>

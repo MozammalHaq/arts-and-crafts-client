@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Comment = ({comment}) => {
-    console.log(comment);
+const Comment = ({ comment }) => {
+
     return (
         <div className='w-1/2 flex flex-col text-center border p-8 bg-slate-200 bg-opacity-40 rounded-2xl border-primary'>
             <img className='w-48 rounded-full mx-auto' src={comment.image} alt="" />
