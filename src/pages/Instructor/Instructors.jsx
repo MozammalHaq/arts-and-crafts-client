@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Container from '../../components/Shared/Container';
 import SectionTitle from '../../components/Shared/SectionTitle';
-import InsRow from './InsRow';
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState([]);

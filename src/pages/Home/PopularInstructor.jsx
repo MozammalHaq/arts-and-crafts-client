@@ -5,13 +5,14 @@ import Instructor from '../../components/Instructor';
 
 const PopularInstructor = () => {
     const [instructors, setInstructors] = useState([]);
-    
+
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('http://localhost:5000/users')
             .then(res => res.json())
             .then(data => {
-                setInstructors(data)
+                const inss = data.filter(ins => ins?.rol === 'instructor')
+                setInstructors(inss);
             })
     }, [])
 
