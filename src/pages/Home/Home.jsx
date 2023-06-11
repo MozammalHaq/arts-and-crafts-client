@@ -1,9 +1,7 @@
-import Extra from "./Extra";
+import Comments from "./Comments";
 import PopularClass from "./PopularClass";
 import PopularInstructor from "./PopularInstructor";
 import TopSlides from "./TopSlides";
-
-
 
 const Home = () => {
     return (
@@ -11,7 +9,7 @@ const Home = () => {
             <TopSlides/>
             <PopularClass/>
             <PopularInstructor/>
-            <Extra/>
+            <Comments/>
         </div>
     );
 };

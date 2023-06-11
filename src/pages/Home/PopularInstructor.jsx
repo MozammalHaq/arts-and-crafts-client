@@ -24,7 +24,7 @@ const PopularInstructor = () => {
                 ></SectionTitle>
                 <div className='grid md:grid-cols-2 gap-5'>
                     {
-                        instructors.map(instructor => <Instructor
+                        instructors.slice(0,6).map(instructor => <Instructor
                             key={instructor._id}
                             instructor={instructor}
                         ></Instructor>)
