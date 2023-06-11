@@ -43,13 +43,13 @@ const Navbar = () => {
                     !user
                         ?
                         <>
-                            <img src={phImg} className='w-11 h-11 rounded-full' alt="" srcSet="" />
-                            <Link className="rounded-full ml-2 btn btn-ghost" to="/login">Login</Link>
+                            {/* <img src={phImg} className='w-11 h-11 rounded-full' alt="" /> */}
+                            <Link className="rounded-full bg-yellow-700 ml-2 btn btn-ghost" to="/login">Login</Link>
                         </>
                         :
                         <>
                             <img title={user?.displayName} className='w-11 h-11 rounded-full' src={user?.photoURL} alt="" />
-                            <button onClick={handleLogOut} className="rounded-full ml-2 btn btn-ghost">log Out</button>
+                            <button onClick={handleLogOut} className="rounded-full bg-yellow-700 ml-2 btn btn-ghost">log Out</button>
                         </>
                 }
             </div>

@@ -16,7 +16,6 @@ const ManageUsers = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    // refetch()
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
@@ -35,7 +34,6 @@ const ManageUsers = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    // refetch()
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
@@ -78,9 +76,11 @@ const ManageUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td className='text-center'><button
+                                    className={`${user?.rol === "instructor" ? "btn btn-disabled border-info text-info" : "btn"}`}
                                     onClick={() => handleMakeInstructor(user)}
                                 >{user?.rol === 'instructor' ? "Instructor" : <FaUserAlt />}</button></td>
                                 <td className='text-center'><button
+                                    className={`${user?.role === "admin" ? "btn btn-disabled border-primary text-primary" : "btn"}`}
                                     onClick={() => handleMakeAdmin(user)}
                                 >{user?.role === 'admin' ? 'Admin' : <FaUserAlt />}</button></td>
                             </tr>)
