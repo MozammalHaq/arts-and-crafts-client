@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import Marquee from "react-fast-marquee";
 import Comment from '../../components/Comment';
 import SectionTitle from '../../components/Shared/SectionTitle';
-import { Parallax } from 'react-parallax';
 
 const Comments = () => {
     const [comments, setComments] = useState([]);
@@ -19,7 +18,7 @@ const Comments = () => {
             })
     }, [])
     return (
-        <div className='py-20'>            
+        <div className='py-20 bg-pink-200'>            
             <Container>
                 <SectionTitle title="Student's Comment"></SectionTitle>
                 <Marquee

@@ -12,9 +12,9 @@ const ManageClass = () => {
                 Total Classes {classes.length}
             </SectionTitle>
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="table border">
                     {/* head */}
-                    <thead className='text-white uppercase'>
+                    <thead className='text-white uppercase bg-pink-800'>
                         <tr>
                             <th>#</th>
                             <th>Image</th>
@@ -31,6 +31,7 @@ const ManageClass = () => {
                         {/* row 1 */}
                         {
                             classes?.map((item, i) => <tr key={item._id}>
+                                {console.log(item)}
                                 <th>{i + 1}</th>
                                 <td>
                                     <div className="flex items-center space-x-3">
@@ -42,16 +43,20 @@ const ManageClass = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    <div className="font-bold">{item?.className}</div>
+                                    <div className="font-bold text-info">{item?.className}</div>
                                 </td>
                                 <td>
                                     <div className="font-bold">{item?.instructorName}</div>
                                 </td>
-                                <td>{item?.instructorEmail}</td>
-                                <td>{item?.seats}</td>
-                                <td>$ {item?.price}</td>
-                                <td>{item.status}</td>
-                                <td><button>Approved</button></td>
+                                <td className='text-info'>{item?.instructorEmail}</td>
+                                <td>{item?.availableSeats}</td>
+                                <td className='text-info'>$ {item?.price}</td>
+                                <td><button>{item?.status ? item?.status : "pending"}</button></td>
+                                <td><div className="btn-group btn-group-vertical lg:btn-group-horizontal">
+                                    <button className="btn btn-outline btn-info text-xs btn-xs">Approve</button>
+                                    <button className="btn btn-outline btn-info text-xs btn-xs">Deny</button>
+                                    <button className="btn btn-outline btn-info text-xs btn-xs">Feedback</button>
+                                </div></td>
                             </tr>)
                         }
                     </tbody>

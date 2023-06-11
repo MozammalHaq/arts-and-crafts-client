@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SectionTitle from '../../components/Shared/SectionTitle';
 import { FaUserAlt } from 'react-icons/fa';
@@ -57,9 +56,9 @@ const ManageUsers = () => {
 
             {/* Manage User Body */}
             <div className="overflow-x-auto">
-                <table className="table table-zebra">
+                <table className="table border">
                     {/* head */}
-                    <thead className='text-white uppercase'>
+                    <thead className='text-white uppercase bg-pink-800'>
                         <tr>
                             <th>#</th>
                             <th>Name</th>
@@ -75,14 +74,22 @@ const ManageUsers = () => {
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td className='text-center'><button
-                                    className={`${user?.rol === "instructor" ? "btn btn-disabled border-info text-info" : "btn"}`}
-                                    onClick={() => handleMakeInstructor(user)}
-                                >{user?.rol === 'instructor' ? "Instructor" : <FaUserAlt />}</button></td>
-                                <td className='text-center'><button
-                                    className={`${user?.role === "admin" ? "btn btn-disabled border-primary text-primary" : "btn"}`}
-                                    onClick={() => handleMakeAdmin(user)}
-                                >{user?.role === 'admin' ? 'Admin' : <FaUserAlt />}</button></td>
+                                <td className='text-center'>
+                                    <form>
+                                        <button
+                                            className={`${user?.rol === "instructor" ? "btn btn-disabled border-info text-info" : "btn"}`}
+                                            onClick={() => handleMakeInstructor(user)}
+                                        >{user?.rol === 'instructor' ? "Instructor" : <FaUserAlt />}</button>
+                                    </form>
+                                </td>
+                                <td className='text-center'>
+                                    <form>
+                                        <button
+                                            className={`${user?.role === "admin" ? "btn btn-disabled border-primary text-primary" : "btn"}`}
+                                            onClick={() => handleMakeAdmin(user)}
+                                        >{user?.role === 'admin' ? 'Admin' : <FaUserAlt />}</button>
+                                    </form>
+                                </td>
                             </tr>)
                         }
                     </tbody>
