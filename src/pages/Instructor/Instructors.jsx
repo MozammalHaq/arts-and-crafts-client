@@ -38,7 +38,7 @@ const Instructors = () => {
                         <tbody>
                             {/* row 1 */}
                             {instructors.map((instructor, i) => <tr key={instructor._id}>
-                                <th>{i + i}</th>
+                                <th>{i + 1}</th>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
