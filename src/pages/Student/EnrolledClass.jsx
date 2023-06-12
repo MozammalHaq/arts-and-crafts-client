@@ -15,17 +15,15 @@ const EnrolledClass = () => {
 
     const [axiosSecure] = useAxiosSecure();
     const getPayment = async () => {
-        const data = await axiosSecure.get(`/payments/${user?.email}`);
-        // const matchCartData = data.data[0]
+        const data = await axiosSecure?.get(`/payments/${user?.email}`);
         const menuId = data?.data[0]?.menuItems;
-        // console.log(menuId);
 
         const match = classes?.filter(obj => menuId?.includes(obj?._id));
         setPurse(match);
     }
 
     const getEnrolled = async () => {
-        const data = await axiosSecure.get('/classes');
+        const data = await axiosSecure?.get('/classes');
         // console.log(data.data);
         setClasses(data?.data)
     }
