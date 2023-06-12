@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAuth from '../../hooks/useAuth';
 import './CheckOutForm.css'
+import { Helmet } from 'react-helmet-async';
 
 const CheckOutForm = ({ price, cart }) => {
     const { user } = useAuth();
@@ -97,7 +98,10 @@ const CheckOutForm = ({ price, cart }) => {
 
     return (
         <>
-            <form className='p-10 border border-primary rounded-2xl' onSubmit={handleSubmit}>
+            <form className='p-10 w-[600px] border border-primary rounded-2xl' onSubmit={handleSubmit}>
+            <Helmet>
+                <title>Arts & Cultural - Checkout Form</title>
+            </Helmet>
                 <CardElement
                     options={{
                         style: {

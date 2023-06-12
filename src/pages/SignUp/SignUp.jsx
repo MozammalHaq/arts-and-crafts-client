@@ -62,7 +62,7 @@ const SignUp = () => {
             <div className="hero bg-opacity-0  mb-6 bg-base-200">
                 <div className="hero-content w-1/2">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body m-0">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

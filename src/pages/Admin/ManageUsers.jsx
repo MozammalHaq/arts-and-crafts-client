@@ -75,7 +75,7 @@ const ManageUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td className='text-center'>
-                                    <form>
+                                    <form className='m-0'>
                                         <button
                                             className={`${user?.rol === "instructor" ? "btn btn-disabled border-info text-info" : "btn"}`}
                                             onClick={() => handleMakeInstructor(user)}
@@ -83,7 +83,7 @@ const ManageUsers = () => {
                                     </form>
                                 </td>
                                 <td className='text-center'>
-                                    <form>
+                                    <form className='m-0'>
                                         <button
                                             className={`${user?.role === "admin" ? "btn btn-disabled border-primary text-primary" : "btn"}`}
                                             onClick={() => handleMakeAdmin(user)}

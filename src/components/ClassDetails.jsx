@@ -10,7 +10,7 @@ const ClassDetails = () => {
     const email = user?.email;
 
     const data = useLoaderData();
-    
+
     const { _id, instructorName, className, classImage, availableSeats, instructorEmail, price, enroll } = data;
     const enrolledData = { id: _id, instructorName, className, classImage, email, price };
     const handleSubmit = (e) => {
@@ -122,17 +122,14 @@ const ClassDetails = () => {
                     </div>
 
                     <form>
-                        {availableSeats !== 0 && <div className="form-control w-full max-w-xs">
+                        {/* {availableSeats !== 0 && <div className="form-control hidden w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text text-yellow-500">Get a seat</span>
                             </label>
                             <input type="text" readOnly name="aSeat" value="1" placeholder="Type here" className="input input-bordered bg-opacity-0 input-primary w-full max-w-xs" />
-                        </div>}
-                        <div className="flex justify-between items-center mt-5">
-                            <button onClick={handleSubmit} className="btn btn-outline btn-secondary">Select</button>
-                            <span className="text-pink-600 font-semibold">or</span>
-                            <Link to='/classes' className="btn btn-primary btn-outline">More Class</Link>
-                        </div>
+                        </div>} */}
+                        <button onClick={handleSubmit} className="btn  btn-secondary">Select</button>
+
                     </form>
                 </div>
             </div>

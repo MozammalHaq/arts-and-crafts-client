@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Container from '../../components/Shared/Container';
 import SectionTitle from '../../components/Shared/SectionTitle';
+import { Helmet } from 'react-helmet-async';
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState([]);
@@ -17,6 +18,9 @@ const Instructors = () => {
 
     return (
         <div className='my-20'>
+            <Helmet>
+                <title>Arts & Cultural - All Instructor</title>
+            </Helmet>
             <Container>
                 <SectionTitle
                     title="All Instructors"

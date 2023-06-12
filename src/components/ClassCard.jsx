@@ -35,7 +35,7 @@ const ClassCard = ({ item }) => {
         getAdmin()
     }, [])
 
-    console.log(users?.length > 0 , admin?.length > 0, item?.availableSeats === 0);
+    // console.log(users?.length > 0 , admin?.length > 0, item?.availableSeats === 0);
 
     return (
         <div className='shadow shadow-yellow-200 rounded-md p-5 hover:shadow-yellow-500'>

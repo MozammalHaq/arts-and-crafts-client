@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 import Button from '../../components/Shared/Button';
+import { Helmet } from 'react-helmet-async';
 
 const AddClass = () => {
     const { user } = useContext(AuthContext)
@@ -35,12 +36,15 @@ const AddClass = () => {
     };
     return (
 
-        <div className='w-full'>
+        <div className='w-2/3 mx-auto'>
+            <Helmet>
+                <title>Arts & Cultural - Add Class</title>
+            </Helmet>
             <SectionTitle
                 title="Add A Class"
             >
             </SectionTitle>
-            <form onSubmit={handleSubmit(onSubmit)} className="mx-5 mx-auto p-8 mb-8 bg-white bg-opacity-5 rounded-lg shadow-lg">
+            <form onSubmit={handleSubmit(onSubmit)} className="mx-5 mx-auto p-8 mb-8 bg-white rounded-lg shadow-lg">
                 <div className="mb-6">
                     <label htmlFor="className" className="block text-sm font-bold mb-2">
                         Class Name
@@ -123,20 +127,6 @@ const AddClass = () => {
                     />
                     {errors.price && <span className="text-red-500">Price is required</span>}
                 </div>
-                {/* <div className="mb-6">
-                    <label htmlFor="status" className="block text-sm font-bold mb-2">
-                        Status
-                    </label>
-                    <input
-                        type="text"
-                        id="status"
-                        placeholder='Status'
-                        className="w-full px-4 py-2 rounded-md border bg-transparent border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        {...register('status')} // Register the status field with React Hook Form
-                        value="pending"
-                        readOnly
-                    />
-                </div> */}
                 <div className="mb-6">
                     <label htmlFor="enroll" className="block text-sm font-bold mb-2">
                         Enroll

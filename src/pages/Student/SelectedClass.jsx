@@ -5,6 +5,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const SelectedClass = () => {
     const [classes, setClasses] = useState([]);
@@ -71,6 +72,9 @@ const SelectedClass = () => {
 
     return (
         <div className='mx-5'>
+            <Helmet>
+                <title>Arts & Cultural - Selected Class</title>
+            </Helmet>
             <SectionTitle title="My Selected Classes">Total Class: {classes.length}</SectionTitle>
             <div className="overflow-x-auto">
                 <table className="table border">

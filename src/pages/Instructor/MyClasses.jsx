@@ -2,6 +2,7 @@ import { useEffect, useContext, useState } from 'react';
 import SectionTitle from '../../components/Shared/SectionTitle';
 import { AuthContext } from '../../providers/AuthProvider';
 import { FaEdit } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 const MyClasses = () => {
     const [classes, setClasses] = useState([]);
@@ -20,6 +21,9 @@ const MyClasses = () => {
 
     return (
         <div className='mx-5'>
+            <Helmet>
+                <title>Arts & Cultural - My Classes</title>
+            </Helmet>
             <SectionTitle title="My All Class">
                 Total Class: {classes.length}
             </SectionTitle>

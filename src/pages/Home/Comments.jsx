@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import Marquee from "react-fast-marquee";
 import Comment from '../../components/Comment';
 import SectionTitle from '../../components/Shared/SectionTitle';
+import { Helmet } from 'react-helmet-async';
 
 const Comments = () => {
     const [comments, setComments] = useState([]);
@@ -18,7 +19,10 @@ const Comments = () => {
             })
     }, [])
     return (
-        <div className='py-20 bg-pink-200'>            
+        <div className='py-20 bg-pink-200'>
+            <Helmet>
+                <title>Arts & Cultural - Home</title>
+            </Helmet>
             <Container>
                 <SectionTitle title="Student's Comment"></SectionTitle>
                 <Marquee

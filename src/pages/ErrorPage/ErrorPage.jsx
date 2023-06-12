@@ -1,11 +1,15 @@
 import { Link, useRouteError } from "react-router-dom";
 import fof from '../../../src/assets/nf404.gif'
+import { Helmet } from "react-helmet-async";
 
 
 const ErrorPage = () => {
     const error = useRouteError();
     return (
         <div className="flex justify-center items-center h-screen text-center bg-red-200">
+            <Helmet>
+                <title>Arts & Cultural - Error page</title>
+            </Helmet>
             <div>
                 <h1 className="text-6xl text-orange-500">Oops!</h1>
                 <img className="w-1/2 block mx-auto my-10" src={fof} alt="" />

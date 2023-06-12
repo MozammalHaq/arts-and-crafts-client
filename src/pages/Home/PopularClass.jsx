@@ -3,6 +3,8 @@ import Container from '../../components/Shared/Container';
 import SectionTitle from '../../components/Shared/SectionTitle';
 import ClassCard from '../../components/ClassCard';
 import { Link } from 'react-router-dom';
+import { Rotate } from 'react-awesome-reveal';
+import { Helmet } from 'react-helmet-async';
 
 const PopularClass = () => {
     const [classes, setClasses] = useState([]);
@@ -19,16 +21,21 @@ const PopularClass = () => {
 
     return (
         <Container>
+            <Helmet>
+                <title>Arts & Cultural - Popular Class</title>
+            </Helmet>
             <SectionTitle
                 title="Popular Classes"
             ></SectionTitle>
             <div className='grid md:grid-cols-3 gap-7'>
-                {
-                    classes?.map(item => <ClassCard
-                        key={item._id}
-                        item={item}
-                    ></ClassCard>)
-                }
+                <Rotate>
+                    {
+                        classes?.map(item => <ClassCard
+                            key={item._id}
+                            item={item}
+                        ></ClassCard>)
+                    }
+                </Rotate>
             </div>
             <div className='flex justify-center mt-12'>
                 <Link to='/classes' className='bg-gradient-to-r from-blue-500 to-purple-500 hover:from-pink-500 hover:to-red-500 text-white font-semibold py-2 px-4 rounded-md'>All Classes</Link>

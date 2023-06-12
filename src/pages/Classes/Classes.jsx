@@ -4,6 +4,7 @@ import SectionTitle from '../../components/Shared/SectionTitle';
 import { Link, useLoaderData } from 'react-router-dom';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAuth from '../../hooks/useAuth';
+import { Helmet } from 'react-helmet-async';
 
 
 const Classes = () => {
@@ -41,6 +42,9 @@ const Classes = () => {
 
     return (
         <Container>
+            <Helmet>
+                <title>Arts & Cultural - Classes</title>
+            </Helmet>
             <SectionTitle title="All Classes">Total Class: {approved.length}</SectionTitle>
             <div className="overflow-x-auto mb-10">
                 <table className="table border">

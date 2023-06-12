@@ -14,7 +14,7 @@ const Button = ({ value }) => {
     return (
         <button
             type='submit'
-            className={`bg-gradient-to-r from-blue-500 to-purple-500 hover:from-pink-500 hover:to-red-500 text-white font-semibold py-2 px-4 rounded-md ${isHovered ? 'shadow-md' : 'shadow'
+            className={`bg-gradient-to-r from-blue-500 to-purple-500 hover:from-pink-500 hover:to-red-500 text-white font-semibold  px-4 rounded-md ${isHovered ? 'shadow-md' : 'shadow'
                 }`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}

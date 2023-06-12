@@ -8,6 +8,7 @@ import { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { useEffect } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK)
 
@@ -40,6 +41,9 @@ const Payment = () => {
 
     return (
         <Container>
+            <Helmet>
+                <title>Arts & Cultural - Payment</title>
+            </Helmet>
             <SectionTitle title="Payment"></SectionTitle>
             <Elements stripe={stripePromise}>
                 <CheckOutForm price={price} cart={cart}></CheckOutForm>

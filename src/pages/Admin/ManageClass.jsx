@@ -1,5 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 import SectionTitle from '../../components/Shared/SectionTitle';
+import { Helmet } from 'react-helmet-async';
 
 const ManageClass = () => {
     const classes = useLoaderData();
@@ -25,6 +26,9 @@ const ManageClass = () => {
 
     return (
         <div className='px-5'>
+            <Helmet>
+                <title>Arts & Cultural - Manage Class</title>
+            </Helmet>
             <SectionTitle
                 title="All Classes"
             >
@@ -71,7 +75,7 @@ const ManageClass = () => {
                                 <td className='text-info'>$ {item?.price}</td>
                                 <td><button>{item?.status ? item?.status : "pending"}</button></td>
                                 <td>
-                                    <form className="btn-group btn-group-vertical lg:btn-group-horizontal">
+                                    <form className="btn-group btn-group-vertical m-0 lg:btn-group-horizontal">
                                         <button
                                             className={`${item?.status === "approved" ? "btn btn-disabled border-primary text-xs text-info btn-xs" : "btn btn-xs text-xs btn-outline"}`}
                                             onClick={() => handleApproved(item)}
