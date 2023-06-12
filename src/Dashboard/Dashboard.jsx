@@ -10,7 +10,7 @@ const Dashboard = () => {
     const [instructors, setInstructors] = useState([]);
     const { user } = useAuth();
 
-    const dashboard = window.location === 'http://127.0.0.1:5173/'
+    const dashboard = ((window.location === 'http://127.0.0.1:5173/') || (window.location === 'https://arts-crafts-b7e57.web.app/'))
     console.log(dashboard)
 
     useEffect(() => {
@@ -31,17 +31,12 @@ const Dashboard = () => {
             })
     }, [])
 
-
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />login
             <div className="drawer-content flex flex-col justify-start">
                 {/* Page content here */}
-
                 <Outlet />
-
-
-
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
             </div>
@@ -72,6 +67,7 @@ const Dashboard = () => {
                                 <>
                                     <li className='hover:text-yellow-600'><Link to="/dashboard/selectedClass"><FaPlusSquare />My Selected Class</Link></li>
                                     <li className='hover:text-yellow-600'><Link to="/dashboard/enrolledClass"><HiClipboardList /> My Enrolled Class</Link></li>
+                                    <li className='hover:text-yellow-600'><Link to="/dashboard/paymentHistory"><HiClipboardList /> Payment History</Link></li>
                                 </>
                     }
                     <li className='hover:text-yellow-600 text-pink-700'><Link to='/'><FaHome /> Home</Link></li>

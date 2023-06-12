@@ -16,6 +16,7 @@ import Login from '../pages/Login/Login'
 import Instructors from '../pages/Instructor/Instructors'
 import ClassDetails from '../components/ClassDetails'
 import PrivateRoute from './PrivateRoute'
+import PaymentHistory from '../pages/Student/PaymentHistory'
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
           {
             path: 'payment',
             element: <Payment />
+          },
+          {
+            path: 'paymentHistory',
+            element: <PaymentHistory />
           },
           {
             path: 'addClass',

@@ -8,12 +8,14 @@ import EnrolledCard from './EnrolledCard';
 const EnrolledClass = () => {
     const { user } = useAuth()
     const [classes, setClasses] = useState([]);
+
     const [purse, setPurse] = useState([])
-    console.log(purse);
+    // console.log(purse);
 
     const [axiosSecure] = useAxiosSecure();
     const getPayment = async () => {
         const data = await axiosSecure?.get(`/payments/${user?.email}`);
+    
         const menuId = data?.data[0]?.menuItems;
 
         const match = classes?.filter(obj => menuId?.includes(obj?._id));
