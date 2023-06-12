@@ -12,7 +12,7 @@ const AddClass = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        fetch('http://localhost:5000/classes', {
+        fetch('https://arts-and-crafts-server.vercel.app/classes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

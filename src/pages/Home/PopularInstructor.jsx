@@ -10,7 +10,7 @@ const PopularInstructor = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://arts-and-crafts-server.vercel.app/users')
             .then(res => res.json())
             .then(data => {
                 // console.log(data)

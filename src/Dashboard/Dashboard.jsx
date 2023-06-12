@@ -12,7 +12,7 @@ const Dashboard = () => {
     
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://arts-and-crafts-server.vercel.app/users')
             .then(res => res.json())
             .then(data => {
                 const findAdmin = data?.filter(adm => user?.email === adm?.email && adm?.role === "admin");
@@ -21,7 +21,7 @@ const Dashboard = () => {
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://arts-and-crafts-server.vercel.app/users')
             .then(res => res.json())
             .then(data => {
                 const findInstructors = data?.filter(instructor => user?.email === instructor?.email && instructor?.rol === "instructor");

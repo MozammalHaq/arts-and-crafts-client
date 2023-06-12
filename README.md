@@ -21,4 +21,4 @@
 * React Helmet
 * React Carousel
 
-Live link: [Arts&crafT](https://toy-car-2096a.web.app/)
+Live link: [Arts&crafT](https://arts-crafts-b7e57.web.app/)

@@ -30,17 +30,17 @@ export const router = createBrowserRouter([
       {
         path: '/instructors',
         element: <Instructors />,
-        loader: () => fetch('http://localhost:5000/users')
+        loader: () => fetch('https://arts-and-crafts-server.vercel.app/users')
       },
       {
         path: '/classes',
         element: <Classes />,
-        loader: () => fetch('http://localhost:5000/classes')
+        loader: () => fetch('https://arts-and-crafts-server.vercel.app/classes')
       },
       {
         path: '/classDetails/:id',
         element: <PrivateRoute><ClassDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
+        loader: ({ params }) => fetch(`https://arts-and-crafts-server.vercel.app/classes/${params.id}`)
       },
       {
         path: '/signup',
@@ -77,12 +77,12 @@ export const router = createBrowserRouter([
           {
             path: 'manageClass',
             element: <ManageClass />,
-            loader: () => fetch('http://localhost:5000/classes')
+            loader: () => fetch('https://arts-and-crafts-server.vercel.app/classes')
           },
           {
             path: 'manageUsers',
             element: <ManageUsers />,
-            loader: () => fetch('http://localhost:5000/users')
+            loader: () => fetch('https://arts-and-crafts-server.vercel.app/users')
           }
         ]
       }

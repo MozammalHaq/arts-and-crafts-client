@@ -10,7 +10,7 @@ const PopularClass = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://arts-and-crafts-server.vercel.app/classes')
             .then(res => res.json())
             .then(data => {
                 const approved = data.filter(item => item.status === "approved")

@@ -28,7 +28,7 @@ const SignUp = () => {
                         // send data to server
                         const saveUser = { name: data.name, email: data.email, image: data.url }
 
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://arts-and-crafts-server.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

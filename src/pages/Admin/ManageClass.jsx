@@ -6,7 +6,7 @@ const ManageClass = () => {
     const classes = useLoaderData();
 
     const handleApproved = user => {
-        fetch(`http://localhost:5000/classes/${user._id}`, {
+        fetch(`https://arts-and-crafts-server.vercel.app/classes/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

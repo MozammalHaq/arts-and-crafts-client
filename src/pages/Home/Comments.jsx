@@ -11,7 +11,7 @@ const Comments = () => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://arts-and-crafts-server.vercel.app/users')
             .then(res => res.json())
             .then(data => {
                 const users = data.filter(user => !(user?.role === 'admin' || user?.rol === "instructor"));

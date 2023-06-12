@@ -8,7 +8,7 @@ const Instructors = () => {
     // console.log(instructors);
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://arts-and-crafts-server.vercel.app/users')
             .then(res => res.json())
             .then(data => {
                 const inss = data.filter(ins => ins?.rol === 'instructor')

@@ -26,7 +26,7 @@ const ClassDetails = () => {
         const updatedSeats = { availableSeats: nowAvailable, enroll: enrolled }
 
         // send data to server
-        fetch(`http://localhost:5000/classes/${_id}`, {
+        fetch(`https://arts-and-crafts-server.vercel.app/classes/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -50,7 +50,7 @@ const ClassDetails = () => {
     }
 
     const enrolledClass = data => {
-        fetch('http://localhost:5000/enrolled', {
+        fetch('https://arts-and-crafts-server.vercel.app/enrolled', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

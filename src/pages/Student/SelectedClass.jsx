@@ -24,7 +24,7 @@ const SelectedClass = () => {
 
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/enrolled', {
+    //     fetch('https://arts-and-crafts-server.vercel.app/enrolled', {
     //         headers: {
     //             authorization: `bearer ${token}`
     //         }
@@ -50,7 +50,7 @@ const SelectedClass = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/enrolled/${id}`, {
+                fetch(`https://arts-and-crafts-server.vercel.app/enrolled/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
