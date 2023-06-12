@@ -9,7 +9,9 @@ const Dashboard = () => {
     const [admin, setAdmin] = useState([]);
     const [instructors, setInstructors] = useState([]);
     const { user } = useAuth();
-    
+
+    const dashboard = window.location === 'http://127.0.0.1:5173/'
+    console.log(dashboard)
 
     useEffect(() => {
         fetch('https://arts-and-crafts-server.vercel.app/users')
@@ -36,16 +38,9 @@ const Dashboard = () => {
             <div className="drawer-content flex flex-col justify-start">
                 {/* Page content here */}
 
-                    <Outlet />
-                {/* <Fade>
-                </Fade> */}
-                {/* {!dashboard && <Rotate duration={2000}>
-                    <div className='flex flex-col justify-center items-center h-screen'>
-                        <h3 className='text-3xl'>Assalamu Alaikum, Warahmatulaah</h3>
-                        <h2 className='text-6xl py-10 text-info'>{(admin.length > 0 && instructors.length) > 0 ? user?.displayName : instructors.length > 0 ? user?.displayName : user?.displayName}</h2>
-                        <h3 className='text-3xl'>Your are <span className='text-primary'>{admin.length > 0 && instructors.length > 0 ? "Admin" : instructors.length > 0 ? "Instructor" : "User"}</span> of the Site</h3>
-                    </div>
-                </Rotate>} */}
+                <Outlet />
+
+
 
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
@@ -53,10 +48,13 @@ const Dashboard = () => {
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu font-semibold space-y-4 text-base p-4 w-80 h-full bg-[#121215] text-white text-base-content">
-                    <h3 className='pl-4 py-8 text-4xl font-semibold text-yellow-600'>
+                    <h3 className='pl-4 pt-8 text-4xl font-semibold text-yellow-600'>
                         {admin.length > 0 && instructors.length > 0 ? "Admin" : instructors.length > 0 ? "Instructor" : "User"} Panel
                     </h3>
-
+                    {!dashboard &&
+                        <h2 className='text-xl ms-4 text-info'>{(admin.length > 0 && instructors.length) > 0 ? user?.displayName : instructors.length > 0 ? user?.displayName : user?.displayName}</h2>
+                    }
+                    <hr className='ms-4 pb-8' />
                     {
                         admin.length > 0 && instructors.length > 0
                             ?

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Container from '../../components/Shared/Container';
 import useAuth from '../../hooks/useAuth';
 import { useEffect } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
@@ -9,7 +8,6 @@ import EnrolledCard from './EnrolledCard';
 const EnrolledClass = () => {
     const { user } = useAuth()
     const [classes, setClasses] = useState([]);
-    // console.log(classes);
     const [purse, setPurse] = useState([])
     console.log(purse);
 
@@ -38,9 +36,9 @@ const EnrolledClass = () => {
 
 
     return (
-        <Container>
+        <div className='ps-5'>
             <SectionTitle title="Enrolled Classes"></SectionTitle>
-            <div className='grid md:grid-cols-2 gap-10'>
+            <div className='grid md:grid-cols-2 gap-5 mb-10'>
                 {
                     purse.map(enr => <EnrolledCard
                         key={enr._id}
@@ -48,7 +46,7 @@ const EnrolledClass = () => {
                     ></EnrolledCard>)
                 }
             </div>
-        </Container>
+        </div>
     );
 };
 

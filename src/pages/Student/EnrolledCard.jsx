@@ -2,7 +2,7 @@ import React from 'react';
 
 const EnrolledCard = ({enr}) => {
     return (
-        <div className="card w-72 bg-base-100 shadow-xl">
+        <div className="card w-80 bg-base-100 shadow-xl">
             <figure><img src={enr.classImage} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{enr.className}</h2>
