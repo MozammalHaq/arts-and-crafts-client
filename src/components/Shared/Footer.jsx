@@ -7,7 +7,7 @@ const Footer = () => {
             <Container>
                 <div className="footer p-10">
                     <div>
-                        <h3 className='text-2xl font-semibold bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-transparent bg-clip-text'>Arts & Crafts School</h3>
+                        <h3 className='text-2xl font-semibold bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-transparent bg-clip-text'>Arts-&-craftS</h3>
                         <p className='underline text-pink-600'>Address</p>
                         <address>
                             Lalmai <br />

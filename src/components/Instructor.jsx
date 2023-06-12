@@ -9,7 +9,7 @@ const Instructor = ({ instructor }) => {
             </div>
             <div>
                 <h2 className="text-2xl">{instructor.name}</h2>
-                <h2 className="text-xl">{instructor.email}</h2>
+                <h2 className="text-xl text-info">{instructor.email}</h2>
             </div>
         </div>
     );

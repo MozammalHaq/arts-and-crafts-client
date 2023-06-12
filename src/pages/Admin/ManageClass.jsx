@@ -42,8 +42,7 @@ const ManageClass = () => {
                             <th>#</th>
                             <th>Image</th>
                             <th>Class Name</th>
-                            <th>Instructor</th>
-                            <th>Email</th>
+                            <th>Instructor <br />Email</th>
                             <th>Seats</th>
                             <th>Price</th>
                             <th>Status</th>
@@ -69,8 +68,8 @@ const ManageClass = () => {
                                 </td>
                                 <td>
                                     <div className="font-bold">{item?.instructorName}</div>
+                                    <span className='text-info'>{item?.instructorEmail}</span>
                                 </td>
-                                <td className='text-info'>{item?.instructorEmail}</td>
                                 <td>{item?.availableSeats}</td>
                                 <td className='text-info'>$ {item?.price}</td>
                                 <td><button>{item?.status ? item?.status : "pending"}</button></td>
