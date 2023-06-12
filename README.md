@@ -20,5 +20,6 @@
 * Express JS
 * React Helmet
 * React Carousel
+* MongoDB
 
 Live link: [Arts&crafT](https://arts-crafts-b7e57.web.app/)
