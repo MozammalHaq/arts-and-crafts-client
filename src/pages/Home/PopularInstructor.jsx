@@ -11,7 +11,8 @@ const PopularInstructor = () => {
         fetch('http://localhost:5000/users')
             .then(res => res.json())
             .then(data => {
-                const inss = data.filter(ins => ins?.rol === 'instructor')
+                console.log(data)
+                const inss = data.filter(ins => ins?.rol === 'instructor' )
                 setInstructors(inss);
             })
     }, [])

@@ -5,7 +5,6 @@ import { FaEdit } from 'react-icons/fa';
 
 const MyClasses = () => {
     const [classes, setClasses] = useState([]);
-    console.log(classes)
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
@@ -60,7 +59,7 @@ const MyClasses = () => {
                                 <td>{item?.availableSeats}</td>
                                 <td>{item?.enroll}</td>
                                 <td>$ {item?.price}</td>
-                                <td>Pending</td>
+                                <td className={item?.status && "text-info"}>{item?.status ? item?.status: "Pending"}</td>
                                 <td>FeedBack</td>
                                 <td>
                                     <button className='btn bg-green-600 border-0 text-white '><FaEdit/></button>

@@ -3,7 +3,26 @@ import SectionTitle from '../../components/Shared/SectionTitle';
 
 const ManageClass = () => {
     const classes = useLoaderData();
-    console.log(classes)
+
+    const handleApproved = user => {
+        fetch(`http://localhost:5000/classes/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: ' Status Update Success.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
+
     return (
         <div className='px-5'>
             <SectionTitle
@@ -31,7 +50,6 @@ const ManageClass = () => {
                         {/* row 1 */}
                         {
                             classes?.map((item, i) => <tr key={item._id}>
-                                {console.log(item)}
                                 <th>{i + 1}</th>
                                 <td>
                                     <div className="flex items-center space-x-3">
@@ -52,11 +70,15 @@ const ManageClass = () => {
                                 <td>{item?.availableSeats}</td>
                                 <td className='text-info'>$ {item?.price}</td>
                                 <td><button>{item?.status ? item?.status : "pending"}</button></td>
-                                <td><div className="btn-group btn-group-vertical lg:btn-group-horizontal">
-                                    <button className="btn btn-outline btn-info text-xs btn-xs">Approve</button>
-                                    <button className="btn btn-outline btn-info text-xs btn-xs">Deny</button>
-                                    <button className="btn btn-outline btn-info text-xs btn-xs">Feedback</button>
-                                </div></td>
+                                <td>
+                                    <form className="btn-group btn-group-vertical lg:btn-group-horizontal">
+                                        <button
+                                            className={`${item?.status === "approved" ? "btn btn-disabled border-primary text-xs text-info btn-xs" : "btn btn-xs text-xs btn-outline"}`}
+                                            onClick={() => handleApproved(item)}
+                                        >{item?.status === 'approved' ? 'Approved' : "Approve"}
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>)
                         }
                     </tbody>

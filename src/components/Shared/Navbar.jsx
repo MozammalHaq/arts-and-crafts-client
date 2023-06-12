@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom"
 import { AuthContext } from '../../providers/AuthProvider';
-import phImg from '../../assets/images/banner/placeholder.jpg'
+// import phImg from '../../assets/images/banner/placeholder.jpg'
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -31,7 +31,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case text-sm md:text-2xl font-bold">Arts&Crafts School</Link>
+                <Link to="/" className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-transparent bg-clip-text btn btn-ghost normal-case text-sm md:text-2xl font-bold">Arts & Crafts School</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

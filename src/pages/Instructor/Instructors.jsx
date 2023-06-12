@@ -25,9 +25,9 @@ const Instructors = () => {
                 </SectionTitle>
 
                 <div className="overflow-x-auto">
-                    <table className="table">
+                    <table className="table border">
                         {/* head */}
-                        <thead className='text-white uppercase'>
+                        <thead className='text-white uppercase bg-pink-800'>
                             <tr>
                                 <th>#</th>
                                 <th>Image</th>

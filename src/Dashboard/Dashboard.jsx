@@ -4,14 +4,11 @@ import { HiClipboardList, HiOutlineAdjustments } from "react-icons/hi";
 import { useState } from 'react';
 import useAuth from '../hooks/useAuth';
 import { useEffect } from 'react';
-import { Fade, Rotate } from 'react-awesome-reveal';
 
 const Dashboard = () => {
     const [admin, setAdmin] = useState([]);
     const [instructors, setInstructors] = useState([]);
     const { user } = useAuth();
-
-    const dashboard = window.location.href === 'http://127.0.0.1:5173/dashboard';
     
 
     useEffect(() => {
@@ -39,16 +36,16 @@ const Dashboard = () => {
             <div className="drawer-content flex flex-col justify-start">
                 {/* Page content here */}
 
-                <Fade>
                     <Outlet />
-                </Fade>
-                {!dashboard && <Rotate duration={2000}>
+                {/* <Fade>
+                </Fade> */}
+                {/* {!dashboard && <Rotate duration={2000}>
                     <div className='flex flex-col justify-center items-center h-screen'>
                         <h3 className='text-3xl'>Assalamu Alaikum, Warahmatulaah</h3>
                         <h2 className='text-6xl py-10 text-info'>{(admin.length > 0 && instructors.length) > 0 ? user?.displayName : instructors.length > 0 ? user?.displayName : user?.displayName}</h2>
                         <h3 className='text-3xl'>Your are <span className='text-primary'>{admin.length > 0 && instructors.length > 0 ? "Admin" : instructors.length > 0 ? "Instructor" : "User"}</span> of the Site</h3>
                     </div>
-                </Rotate>}
+                </Rotate>} */}
 
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 

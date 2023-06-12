@@ -1,18 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '../../components/Shared/Container';
 import SectionTitle from '../../components/Shared/SectionTitle';
 import { Link, useLoaderData } from 'react-router-dom';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useAuth from '../../hooks/useAuth';
+
 
 const Classes = () => {
     const data = useLoaderData();
+    const approved = data.filter(item => item.status === "approved")
+
+    const { user } = useAuth()
+
+    const [axiosSecure] = useAxiosSecure();
+    const [users, setUsers] = useState([]);
+
+    const [admin, setAdmin] = useState([]);
+
+    const getInstructor = async () => {
+        const { data } = await axiosSecure.get('/users');
+        const rol = data?.filter(ins => ins?.rol === "instructor");
+        const insEmail = rol?.filter(ie => ie?.email === user?.email)
+        setUsers(insEmail)
+    }
+
+    const getAdmin = async () => {
+        const { data } = await axiosSecure.get('/users');
+        const role = data?.filter(ins => ins?.role === "admin");
+        const admEmail = role?.filter(ae => ae?.email === user?.email)
+        setAdmin(admEmail)
+    }
+
+    useEffect(() => {
+        getInstructor()
+    }, [])
+
+    useEffect(() => {
+        getAdmin()
+    }, [])
 
     return (
         <Container>
-            <SectionTitle title="All Classes">Total Class: {data.length}</SectionTitle>
-            <div className="overflow-x-auto">
-                <table className="table">
+            <SectionTitle title="All Classes">Total Class: {approved.length}</SectionTitle>
+            <div className="overflow-x-auto mb-10">
+                <table className="table border">
                     {/* head */}
-                    <thead className='text-white uppercase'>
+                    <thead className='text-white uppercase bg-pink-800'>
                         <tr>
                             <th>#</th>
                             <th>Image</th>
@@ -28,7 +61,7 @@ const Classes = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            data?.map((item, i) => <tr key={item._id}>
+                            approved?.map((item, i) => <tr key={item._id}>
                                 <th>{i + 1}</th>
                                 <td>
                                     <div className="flex items-center space-x-3">
@@ -50,7 +83,9 @@ const Classes = () => {
                                 <td>{item?.enroll}</td>
                                 <td>$ {item?.price}</td>
                                 <td>
-                                    <Link to={`/classDetails/${item._id}`} className={` ${item?.availableSeats === 0 ? 'bg-red-600 disabled  text-white font-semibold py-2 px-4 rounded-md' : 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-pink-500 hover:to-red-500 text-white font-semibold py-2 px-4 rounded-md'}`}>Select</Link>
+                                    <button className={`${(users.length > 0 || admin.length > 0 || item?.availableSeats === 0) ? 'bg-red-600 btn btn-disabled  text-white font-semibold py-2 px-4 rounded-md' : 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-pink-500 hover:to-red-500 btn text-white font-semibold py-2 px-4 rounded-md'}`}>
+                                        <Link to={`/classDetails/${item._id}`}>Select</Link>
+                                    </button>
                                 </td>
                             </tr>)
                         }

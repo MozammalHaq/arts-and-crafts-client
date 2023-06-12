@@ -11,7 +11,8 @@ const PopularClass = () => {
         fetch('http://localhost:5000/classes')
             .then(res => res.json())
             .then(data => {
-                const sorted = data.sort((b, a) => parseFloat(a?.enroll) - parseFloat(b?.enroll))
+                const approved = data.filter(item => item.status === "approved")
+                const sorted = approved.sort((b, a) => parseFloat(a?.enroll) - parseFloat(b?.enroll))
                 setClasses(sorted.slice(0, 6))
             })
     }, [])
